@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5Mbgzin4Z4xwYQcWxj8pJAy/PZqh7o7GRhD3cMRAR/aI9Z0sInbh8XAw+H+qO6/hIMYMqBPx+aljuTRy7Rmv5w==",
+  "dgSpecHash": "tuM/NZ+pJRBlRGoCsOCCj9ZQzJGi6YnvDbkTW5H/T/Pf8k4sJbcnCy38eT1YQNc/PjtexGfS2conrp4RTJC6qw==",
   "success": true,
-  "projectFilePath": "\\\\mac\\Home\\Documents\\UiPath\\Uipath001\\.local\\",
+  "projectFilePath": "\\\\mac\\Home\\Documents\\UiPath\\uipathmadrid\\.local\\",
   "expectedPackageFiles": [
     "C:\\Users\\cecilioalvarezcaules\\.nuget\\packages\\closedxml\\0.87.1\\closedxml.0.87.1.nupkg.sha512",
     "C:\\Users\\cecilioalvarezcaules\\.nuget\\packages\\csvhelper\\16.0.0\\csvhelper.16.0.0.nupkg.sha512",

@@ -5018,9 +5018,9 @@
     "restore": {
       "projectUniqueName": "Uipath001",
       "projectName": "Uipath001",
-      "projectPath": "\\\\mac\\Home\\Documents\\UiPath\\Uipath001\\.local",
+      "projectPath": "\\\\Mac\\Home\\Documents\\UiPath\\uipathmadrid\\.local",
       "packagesPath": "C:\\Users\\cecilioalvarezcaules\\.nuget\\packages\\",
-      "outputPath": "\\\\mac\\Home\\Documents\\UiPath\\Uipath001\\.local"
+      "outputPath": "\\\\Mac\\Home\\Documents\\UiPath\\uipathmadrid\\.local"
     },
     "frameworks": {
       "net461": {
