@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Sequence013" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="857,993" sap2010:WorkflowViewState.IdRef="Sequence013_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Sequencia014RepasoFichero" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="727,993" sap2010:WorkflowViewState.IdRef="Sequencia014RepasoFichero_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -51,62 +51,61 @@
       <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
       <AssemblyReference>System.ValueTuple</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
-      <AssemblyReference>UiPath.Excel</AssemblyReference>
-      <AssemblyReference>UiPath.Mail</AssemblyReference>
-      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Sequence013" sap:VirtualizedContainerService.HintSize="428,928" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Sequencia014RepasoFichero" sap:VirtualizedContainerService.HintSize="428,928" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="texto" />
-      <Variable x:TypeArguments="s:String[]" Name="filasTexto" />
-      <Variable x:TypeArguments="s:String[]" Name="datosFila" />
+      <Variable x:TypeArguments="s:String[]" Name="lineas" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ReadTextFile Content="[texto]" DisplayName="Leo el fichero" FileName="\\Mac\Home\Desktop\hola.txt.txt" sap:VirtualizedContainerService.HintSize="386,79" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
-    <Assign DisplayName="partimos por  caracter de nueva fila" sap:VirtualizedContainerService.HintSize="386,64" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <ui:ReadTextFile Content="[texto]" DisplayName="Read Text File" FileName="\\Mac\Home\Desktop\hola.txt.txt" sap:VirtualizedContainerService.HintSize="386,79" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
+    <Assign sap:VirtualizedContainerService.HintSize="386,64" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
-        <OutArgument x:TypeArguments="s:String[]">[filasTexto]</OutArgument>
+        <OutArgument x:TypeArguments="s:String[]">[lineas]</OutArgument>
       </Assign.To>
       <Assign.Value>
         <InArgument x:TypeArguments="s:String[]" xml:space="preserve">[texto.split(New String() {Environment.NewLine},
 StringSplitOptions.None)]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each fila con comas" sap:VirtualizedContainerService.HintSize="386,613" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[filasTexto]">
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="386,613" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[lineas]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:String">
           <ActivityAction.Argument>
-            <DelegateInArgument x:TypeArguments="x:String" Name="filaTexto" />
+            <DelegateInArgument x:TypeArguments="x:String" Name="linea" />
           </ActivityAction.Argument>
           <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="350,479" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
-              <Variable x:TypeArguments="s:String[]" Name="fila" />
+              <Variable x:TypeArguments="s:String[]" Name="listaLinea" />
             </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Assign DisplayName="partimos por la coma de cada linea" sap:VirtualizedContainerService.HintSize="308,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+            <Assign sap:VirtualizedContainerService.HintSize="308,60" sap2010:WorkflowViewState.IdRef="Assign_2">
               <Assign.To>
-                <OutArgument x:TypeArguments="s:String[]">[datosFila]</OutArgument>
+                <OutArgument x:TypeArguments="s:String[]">[listaLinea]</OutArgument>
               </Assign.To>
               <Assign.Value>
-                <InArgument x:TypeArguments="s:String[]">[filaTexto.split(","c)]</InArgument>
+                <InArgument x:TypeArguments="s:String[]">[linea.split(","c)]</InArgument>
               </Assign.Value>
             </Assign>
-            <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="recorremos una lista de textos de una linea" sap:VirtualizedContainerService.HintSize="308,287" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[datosFila]">
+            <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="308,287" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[listaLinea]">
               <ui:ForEach.Body>
                 <ActivityAction x:TypeArguments="x:String">
                   <ActivityAction.Argument>
-                    <DelegateInArgument x:TypeArguments="x:String" Name="dato" />
+                    <DelegateInArgument x:TypeArguments="x:String" Name="item" />
                   </ActivityAction.Argument>
                   <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="272,153" sap2010:WorkflowViewState.IdRef="Sequence_4">
                     <sap:WorkflowViewStateService.ViewState>
@@ -114,7 +113,7 @@ StringSplitOptions.None)]</InArgument>
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <WriteLine DisplayName="Imprimimos cada item de la linea" sap:VirtualizedContainerService.HintSize="230,61" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[dato]" />
+                    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="230,61" sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="[item]" />
                   </Sequence>
                 </ActivityAction>
               </ui:ForEach.Body>
