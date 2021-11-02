@@ -1,12 +1,12 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="LectorFicheroNotas" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="listaTextos" Type="InArgument(s:String[])" />
-    <x:Property Name="textoFichero" Type="InArgument(x:String)" />
+    <x:Property Name="listaTextos" Type="OutArgument(s:String[])" />
+    <x:Property Name="fichero" Type="InArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>604.8,524</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>767.2,342.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>LectorFicheroNotas_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -64,17 +64,18 @@
       <AssemblyReference>UiPath.Mail</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="LectorFicheroNotas" sap:VirtualizedContainerService.HintSize="425.6,410.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="LectorFicheroNotas" sap:VirtualizedContainerService.HintSize="425.6,277.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="textoFichero" />
+    </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ReadTextFile Content="[textoFichero]" DisplayName="Read Text File" FileName="\\Mac\Home\Desktop\notas.txt" sap:VirtualizedContainerService.HintSize="384,80.8" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="384,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[textoFichero]" />
+    <ui:ReadTextFile Content="[textoFichero]" DisplayName="Read Text File" FileName="[fichero]" sap:VirtualizedContainerService.HintSize="384,80.8" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
     <Assign sap:VirtualizedContainerService.HintSize="384,64" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="s:String[]">[listaTextos]</OutArgument>
